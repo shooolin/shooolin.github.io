@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Shinde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: #d3d3d3;
+            --accent-color: #888888;
+            --border-color: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .content-section {
+            background-color: #111111;
+            text-align: center;
+            padding: 1.5rem;
+            margin: 0 auto;
+            border-left: 4px solid var(--accent-color);
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .technical-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--border-color);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            text-align: center;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+        }
+
+        .buttons-section {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            padding: 0.4rem 0.8rem;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .contact-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .technical-skills {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .profile-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <img src="assets/images/pfp.jpeg" alt="" class="profile-image">
+            <h1 class="profile-name">Sahil Shinde</h1>
+            <p class="profile-title">Mechatronics Engineering Student</p>
+            <div class="buttons-section">
+                <a href="#" class="contact-link" id="academicsBtn">Academics</a>
+                <a href="#" class="contact-link" id="resumeBtn">Resume</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <section>
+                <h2 class="section-title">About Me</h2>
+                <p>I am a final year Mechatronics Engineering student at Terna College of Engineering, I am deeply passionate about the interconnected world of engineering disciplines. My academic journey is driven by a genuine interest in the dynamic field of Mechatronics, which beautifully integrates electronics, mechanical engineering, and computer science. Currently, I am dedicated to upskilling myself, focusing on building a strong technical foundation that will support my future professional endeavors and innovative projects.</p>
+            </section>
+        </div>
+
+        <div class="content-section">
+            <section>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="technical-skills">
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">C/C++</div>
+                    <div class="skill-tag">Blender</div>
+                    <div class="skill-tag">ROS2</div>
+                    <div class="skill-tag">Gazebo</div>
+                    <div class="skill-tag">Shell (Bash)</div>
+                    <div class="skill-tag">Inventor</div>
+                </div>
+            </section>
+        </div>
+
+        <div class="content-section">
+            <section>
+                <h2 class="section-title">Current Activities</h2>
+                <p>Engineering Major Project - Smart Soles: Integrated Gait Cycle Detection</p>
+                <p>7 Months Competitive Program - eYantra 24-25 by IIT Bombay</p>
+                <p>9 Months Program - Minor in AI by IIT Ropar</p>
+                <p>3 Months Program - Competitive Programming by IIT Professors</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="pdfModal" style="display: none;">
+        <span id="closeModal">&times;</span>
+        <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        document.getElementById('resumeBtn').addEventListener('click', function() {
+            var pdfUrl = 'assets/resume.pdf'; // Path to your PDF file
+            window.open(pdfUrl, '_blank');
+        });
+        document.getElementById('academicsBtn').addEventListener('click', function() {
+            var pdfUrl = 'assets/academics.pdf'; // Path to your PDF file
+            window.open(pdfUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
