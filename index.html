@@ -71,38 +71,45 @@
         }
 
         .content-section {
-            background-color: #111111;
-            text-align: center;
+            background: var(--card-background);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
             padding: 1.5rem;
-            margin: 0 auto;
-            border-left: 4px solid var(--accent-color);
-            width: 100%;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .content-section:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
         }
 
         .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--border-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            position: relative;
             padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .technical-skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 1rem;
         }
 
         .skill-tag {
-            background-color: var(--border-color);
+            background-color: rgba(73, 144, 226, 0.05);
+            border: 2px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.6rem;
+            padding: 1rem;
             text-align: center;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 200;
         }
 
         .skill-tag:hover {
-            background-color: var(--accent-color);
+            border-color: var(--accent-color);
         }
 
         .buttons-section {
@@ -111,24 +118,91 @@
             justify-content: center;
             gap: 1rem;
             margin-top: 1.5rem;
+            background-color: transparent
         }
 
         .contact-link {
             text-decoration: none;
             color: var(--text-primary);
-            padding: 0.4rem 0.8rem;
-            background-color: var(--border-color);
-            border-radius: 4px;
+            padding: 0.6rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
             font-size: 0.8rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .contact-link:hover {
-            background-color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .activities-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(73, 144, 226, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .activity-item:hover {
+            border-color: var(--accent-color);
+        }
+
+        .activity-duration {
+            color: var(--accent-color);
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .activity-description {
+            text-align: left;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-status {
+            background-color: rgba(255, 38, 0, 0.05);
+            color: #ff2600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.2; /* Reduced opacity for better visibility */
+        }
+
+        .about-me-text {
+            max-width: 700px;
+            margin: 3rem auto 0rem auto;
+            text-align: center;
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -144,26 +218,38 @@
             .container {
                 padding: 1rem;
             }
+
+            .activity-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .activity-duration {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+            .video-background {
+                opacity: 0.3; /* Slightly lower opacity for mobile devices */
+            }
         }
     </style>
 </head>
 <body>
+    <video autoplay loop muted playsinline class="video-background">
+        <source src="assets/images/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="container">
         <div class="profile-section">
             <img src="assets/images/pfp.jpeg" alt="" class="profile-image">
             <h1 class="profile-name">Sahil Shinde</h1>
             <p class="profile-title">Mechatronics Engineering Student</p>
             <div class="buttons-section">
+            	<a href="#" class="contact-link" id="emailBtn">Email</a>
                 <a href="#" class="contact-link" id="academicsBtn">Academics</a>
                 <a href="#" class="contact-link" id="resumeBtn">Resume</a>
             </div>
-        </div>
-
-        <div class="content-section">
-            <section>
-                <h2 class="section-title">About Me</h2>
-                <p>I am a final year Mechatronics Engineering student at Terna College of Engineering, I am deeply passionate about the interconnected world of engineering disciplines. My academic journey is driven by a genuine interest in the dynamic field of Mechatronics, which beautifully integrates electronics, mechanical engineering, and computer science. Currently, I am dedicated to upskilling myself, focusing on building a strong technical foundation that will support my future professional endeavors and innovative projects.</p>
-            </section>
+            <p class="about-me-text">I am a final year B.E. Mechatronics Engineering student at Terna College of Engineering, I am deeply passionate about the interconnected world of engineering disciplines. My academic journey is driven by a genuine interest in the dynamic field of Mechatronics, which beautifully integrates electronics, mechanical engineering, and computer science. Currently, I am dedicated to upskilling myself, focusing on building a strong technical foundation that will support my future professional endeavors and projects.</p>
         </div>
 
         <div class="content-section">
@@ -184,10 +270,39 @@
         <div class="content-section">
             <section>
                 <h2 class="section-title">Current Activities</h2>
-                <p>Engineering Major Project - Smart Soles: Integrated Gait Cycle Detection</p>
-                <p>7 Months Competitive Program - eYantra 24-25 by IIT Bombay</p>
-                <p>9 Months Program - Minor in AI by IIT Ropar</p>
-                <p>3 Months Program - Competitive Programming by IIT Professors</p>
+                <div class="activities-chart">
+                    <div class="activity-item">
+                        <div class="activity-duration">Major Project</div>
+                        <div class="activity-description">
+                            Smart Soles: Integrated Gait Cycle Detection
+                            <span class="activity-status">completed research</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-duration">7 Months</div>
+                        <div class="activity-description">
+                            Competitive Program - eYantra 24-25 by IIT Bombay
+                            <span class="activity-status">cleared stage 1</span>
+                        </div>
+                        
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-duration">9 Months</div>
+                        <div class="activity-description">
+                            Minor in AI by IIT Ropar
+                            <span class="activity-status">semester 1 ongoing</span>
+
+                        </div>
+
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-duration">3 Months</div>
+                        <div class="activity-description">
+                            Competitive Programming by IIT Professors
+                            <span class="activity-status">just enrolled</span>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -205,6 +320,11 @@
         document.getElementById('academicsBtn').addEventListener('click', function() {
             var pdfUrl = 'assets/academics.pdf'; // Path to your PDF file
             window.open(pdfUrl, '_blank');
+        });
+        document.getElementById('emailBtn').addEventListener('click', function() {
+            var emailAddress = 'sahilshinde603@gmail.com'; // Replace with actual email
+            var gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+            window.open(gmailComposeUrl, '_blank');
         });
     </script>
 </body>
